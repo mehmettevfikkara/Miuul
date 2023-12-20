@@ -1,0 +1,43 @@
+Building DAG of jobs...
+Your conda installation is not configured to use strict channel priorities. This is however crucial for having robust and correct environments (for details, see https://conda-forge.org/docs/user/tipsandtricks.html). Please consider to configure strict priorities by executing 'conda config --set channel_priority strict'.
+Creating conda environment env/env.yaml...
+Downloading and installing remote packages.
+Environment for /Users/mehmettevfikkara/PycharmProjects/Miuul/env/env.yaml created (location: .snakemake/conda/86df1ed97668d9f8703765ea6aa9febf_)
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job               count
+--------------  -------
+all                   1
+tRNAscan_stats        1
+total                 2
+
+Select jobs to execute...
+
+[Wed Dec 20 23:26:34 2023]
+rule tRNAscan_stats:
+    input: resource/G_intestinalis.fasta
+    output: output/G_intestinalis.tRNA, output/G_intestinalis.stats
+    jobid: 1
+    reason: Missing output files: output/G_intestinalis.tRNA
+    resources: tmpdir=/var/folders/fm/g5b93mjn4fq0jw4s838frp700000gn/T
+
+/Users/mehmettevfikkara/anaconda3/envs/snakemake/bin/python3.12 /Users/mehmettevfikkara/PycharmProjects/Miuul/.snakemake/scripts/tmpawnr4gb5.tRNAscan_stats.py
+Activating conda environment: .snakemake/conda/86df1ed97668d9f8703765ea6aa9febf_
+[Wed Dec 20 23:27:21 2023]
+Finished job 1.
+1 of 2 steps (50%) done
+Select jobs to execute...
+
+[Wed Dec 20 23:27:21 2023]
+localrule all:
+    input: output/G_intestinalis.tRNA
+    jobid: 0
+    reason: Input files updated by another job: output/G_intestinalis.tRNA
+    resources: tmpdir=/var/folders/fm/g5b93mjn4fq0jw4s838frp700000gn/T
+
+[Wed Dec 20 23:27:21 2023]
+Finished job 0.
+2 of 2 steps (100%) done
+Complete log: .snakemake/log/2023-12-20T232603.440677.snakemake.log

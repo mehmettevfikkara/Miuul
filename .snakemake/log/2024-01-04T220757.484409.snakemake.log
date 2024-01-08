@@ -1,0 +1,57 @@
+Building DAG of jobs...
+Your conda installation is not configured to use strict channel priorities. This is however crucial for having robust and correct environments (for details, see https://conda-forge.org/docs/user/tipsandtricks.html). Please consider to configure strict priorities by executing 'conda config --set channel_priority strict'.
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                        count
+-----------------------  -------
+all                            1
+tRNAScan_stats_wildcard        2
+total                          3
+
+Select jobs to execute...
+
+[Thu Jan  4 22:08:03 2024]
+rule tRNAScan_stats_wildcard:
+    input: resource/G_muris.fna
+    output: output/G_muris.tRNA, output/G_muris.stats
+    jobid: 1
+    reason: Missing output files: output/G_muris.tRNA
+    wildcards: genome=G_muris
+    resources: tmpdir=/var/folders/fm/g5b93mjn4fq0jw4s838frp700000gn/T
+
+/Users/mehmettevfikkara/anaconda3/envs/snakemake/bin/python3.12 /Users/mehmettevfikkara/PycharmProjects/Miuul/.snakemake/scripts/tmp904wy4yi.tRNAscan_stats.py
+Activating conda environment: .snakemake/conda/86df1ed97668d9f8703765ea6aa9febf_
+[Thu Jan  4 22:08:26 2024]
+Finished job 1.
+1 of 3 steps (33%) done
+Select jobs to execute...
+
+[Thu Jan  4 22:08:26 2024]
+rule tRNAScan_stats_wildcard:
+    input: resource/S_salmonicida.fna
+    output: output/S_salmonicida.tRNA, output/S_salmonicida.stats
+    jobid: 2
+    reason: Missing output files: output/S_salmonicida.tRNA
+    wildcards: genome=S_salmonicida
+    resources: tmpdir=/var/folders/fm/g5b93mjn4fq0jw4s838frp700000gn/T
+
+/Users/mehmettevfikkara/anaconda3/envs/snakemake/bin/python3.12 /Users/mehmettevfikkara/PycharmProjects/Miuul/.snakemake/scripts/tmpc_2685cq.tRNAscan_stats.py
+Activating conda environment: .snakemake/conda/86df1ed97668d9f8703765ea6aa9febf_
+[Thu Jan  4 22:08:40 2024]
+Finished job 2.
+2 of 3 steps (67%) done
+Select jobs to execute...
+
+[Thu Jan  4 22:08:40 2024]
+localrule all:
+    input: output/G_muris.tRNA, output/S_salmonicida.tRNA
+    jobid: 0
+    reason: Input files updated by another job: output/G_muris.tRNA, output/S_salmonicida.tRNA
+    resources: tmpdir=/var/folders/fm/g5b93mjn4fq0jw4s838frp700000gn/T
+
+[Thu Jan  4 22:08:40 2024]
+Finished job 0.
+3 of 3 steps (100%) done
+Complete log: .snakemake/log/2024-01-04T220757.484409.snakemake.log

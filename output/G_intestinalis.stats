@@ -1,9 +1,9 @@
 
 tRNAscan-SE v.2.0.12 (Nov 2022) scan results (on host MehmetTevfik-MacBook-Air.local)
-Started: Wed Dec 20 23:26:37 +03 2023
+Started: Fri Jan 26 16:53:26 +03 2024
 
 ------------------------------------------------------------
-Sequence file(s) to search:        resource/G_intestinalis.fasta
+Sequence file(s) to search:        resource/genomes/G_intestinalis.fasta
 Search Mode:                       Eukaryotic
 Results written to:                output/G_intestinalis.tRNA
 Output format:                     Tabular
@@ -19,39 +19,39 @@ Search statistics saved in:        output/G_intestinalis.stats
 
 First-pass Stats:
 ---------------
-Sequences read:         37
-Seqs w/at least 1 hit:  20
-Bases read:             11696115 (x2 for both strands)
-Bases in tRNAs:         6173
-tRNAs predicted:        81
-Av. tRNA length:        76
-Script CPU time:        0.32 s
-Scan CPU time:          40.41 s
-Scan speed:             578.9 Kbp/sec
+Sequences read:         35
+Seqs w/at least 1 hit:  7
+Bases read:             12078186 (x2 for both strands)
+Bases in tRNAs:         18046
+tRNAs predicted:        223
+Av. tRNA length:        80
+Script CPU time:        0.36 s
+Scan CPU time:          42.18 s
+Scan speed:             572.7 Kbp/sec
 
-First pass search(es) ended: Wed Dec 20 23:26:53 +03 2023
+First pass search(es) ended: Fri Jan 26 16:53:40 +03 2024
 
 Infernal Stats:
 -----------
-Candidate tRNAs read:     81
-Infernal-confirmed tRNAs:     75
-Bases scanned by Infernal:  7793
-% seq scanned by Infernal:  0.0 %
-Script CPU time:          0.25 s
-Infernal CPU time:            14.71 s
-Scan speed:               529.8 bp/sec
+Candidate tRNAs read:     223
+Infernal-confirmed tRNAs:     220
+Bases scanned by Infernal:  22506
+% seq scanned by Infernal:  0.1 %
+Script CPU time:          0.34 s
+Infernal CPU time:            59.40 s
+Scan speed:               378.9 bp/sec
 
-Infernal analysis of tRNAs ended: Wed Dec 20 23:27:05 +03 2023
+Infernal analysis of tRNAs ended: Fri Jan 26 16:54:30 +03 2024
 
-Overall scan speed: 420043.6 bp/sec
+Overall scan speed: 236178.8 bp/sec
 
-tRNAs decoding Standard 20 AA:              62
+tRNAs decoding Standard 20 AA:              65
 Selenocysteine tRNAs (TCA):                 0
 Possible suppressor tRNAs (CTA,TTA,TCA):    0
 tRNAs with undetermined/unknown isotypes:   0
-Predicted pseudogenes:                      13
+Predicted pseudogenes:                      155
                                             -------
-Total tRNAs:                                75
+Total tRNAs:                                220
 
 tRNAs with introns:     	3
 
@@ -60,7 +60,7 @@ tRNAs with introns:     	3
 Isotype / Anticodon Counts:
 
 Ala     : 4	  AGC: 2       GGC:         CGC: 1       TGC: 1     
-Gly     : 3	  ACC:         GCC: 1       CCC: 1       TCC: 1     
+Gly     : 4	  ACC:         GCC: 2       CCC: 1       TCC: 1     
 Pro     : 3	  AGG: 1       GGG:         CGG: 1       TGG: 1     
 Thr     : 3	  AGT: 1       GGT:         CGT: 1       TGT: 1     
 Val     : 4	  AAC:         GAC: 2       CAC: 1       TAC: 1     
@@ -74,7 +74,7 @@ Asp     : 3	  ATC:         GTC: 3
 Glu     : 3	                            CTC: 2       TTC: 1     
 His     : 1	  ATG:         GTG: 1                               
 Gln     : 4	                            CTG: 1       TTG: 3     
-Ile     : 17	  AAT:         GAT: 16      CAT:         TAT: 1     
+Ile     : 161	  AAT:         GAT: 160     CAT:         TAT: 1     
 Met     : 3	                            CAT: 3                  
 Tyr     : 1	  ATA:         GTA: 1                               
 Supres  : 0	               CTA:         TTA:         TCA:       

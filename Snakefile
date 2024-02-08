@@ -1,20 +1,22 @@
 rule all:
-    input: #"output/tRNA_scan_result.txt",
-           #"output/G_intestinalis.tRNA"
-            #expand("output/{sp}.tRNA",sp =["G_muris","S_salmonicida"]),
+    input: "output/tRNA_scan_result.txt",
+           "output/G_intestinalis.tRNA",
+            expand("output/{sp}.tRNA",sp =["G_muris","S_salmonicida"]),
             expand("output/blastn/G_intestinalis/{sp}.blastn", sp =["G_muris", "S_salmonicida"])
+
+
 rule tRNAscan:
-    input: "resource/G_intestinalis.fasta"
-    output: "output/tRNA_scan_result.txt"
+    input: "resource/genomes/G_intestinalis.fasta"
+    output: "output/tRNAscan/tRNA_scan_result.txt"
     shell: """tRNAscan-SE {input} -o {output}"""
 
 
 rule tRNAscan_stats:
     input:
-        genome = "resource/G_intestinalis.fasta"
+        genome = "resource/genomes/G_intestinalis.fasta"
     output:
-        tRNA = "output/G_intestinalis.tRNA",
-        stats = "output/G_intestinalis.stats"
+        tRNA = "output/tRNAscan/G_intestinalis.tRNA",
+        stats = "output/tRNAscan/G_intestinalis.stats"
     params:
         threads = 2
     conda:
@@ -23,13 +25,12 @@ rule tRNAscan_stats:
         "scripts/tRNAscan_stats.py"
 
 
-
 rule tRNAScan_stats_wildcard:
     input:
-        genome = "resource/{genome}.fna"
+        genome = "resource/genomes/{genome}.fasta"
     output:
-        tRNA = "output/{genome}.tRNA",
-        stats = "output/{genome}.stats"
+        tRNA = "output/tRNAscan/{genome}.tRNA",
+        stats = "output/tRNAscan/{genome}.stats"
     params:
         threads = 2
     conda:
@@ -74,3 +75,16 @@ rule blastn:
     #     "/Users/mehmettevfikkara/anaconda3/envs/blast"
     script:
           "scripts/blastn.py"
+
+
+rule orthofinder:
+    input:
+        fasta = "resource/orthofinder",
+    output:
+        directory("output/orthofinder"),
+    conda:
+        "env/env.yaml"
+    script:
+        "scripts/2_BioinformaticTools/orthofinder.py"
+
+

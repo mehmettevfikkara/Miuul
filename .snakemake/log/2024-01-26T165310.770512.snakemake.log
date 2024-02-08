@@ -1,0 +1,103 @@
+Building DAG of jobs...
+Your conda installation is not configured to use strict channel priorities. This is however crucial for having robust and correct environments (for details, see https://conda-forge.org/docs/user/tipsandtricks.html). Please consider to configure strict priorities by executing 'conda config --set channel_priority strict'.
+Retrieving input from storage.
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job               count
+--------------  -------
+all                   1
+blastn                2
+makeblastdb           1
+tRNAscan              1
+tRNAscan_stats        1
+total                 6
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Jan 26 16:53:13 2024]
+localrule makeblastdb:
+    input: resource/blastn/db/G_intestinalis.fasta
+    output: output/blastn/db/G_intestinalis.ndb, output/blastn/db/G_intestinalis.nhr, output/blastn/db/G_intestinalis.nin, output/blastn/db/G_intestinalis.not, output/blastn/db/G_intestinalis.nsq, output/blastn/db/G_intestinalis.ntf, output/blastn/db/G_intestinalis.nto
+    jobid: 4
+    reason: Updated input files: resource/blastn/db/G_intestinalis.fasta
+    wildcards: type=blastn, db=G_intestinalis
+    resources: tmpdir=/var/folders/fm/g5b93mjn4fq0jw4s838frp700000gn/T
+
+makeblastdb -dbtype nucl -in resource/blastn/db/G_intestinalis.fasta -out output/blastn/db/G_intestinalis
+[Fri Jan 26 16:53:18 2024]
+Finished job 4.
+1 of 6 steps (17%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Jan 26 16:53:18 2024]
+localrule blastn:
+    input: resource/blastn/query/S_salmonicida.fasta, output/blastn/db/G_intestinalis.ndb
+    output: output/blastn/G_intestinalis/S_salmonicida.blastn
+    jobid: 5
+    reason: Input files updated by another job: output/blastn/db/G_intestinalis.ndb
+    wildcards: type=blastn, db=G_intestinalis, query=S_salmonicida
+    resources: tmpdir=/var/folders/fm/g5b93mjn4fq0jw4s838frp700000gn/T
+
+[Fri Jan 26 16:53:21 2024]
+Finished job 5.
+2 of 6 steps (33%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Jan 26 16:53:21 2024]
+localrule blastn:
+    input: resource/blastn/query/G_muris.fasta, output/blastn/db/G_intestinalis.ndb
+    output: output/blastn/G_intestinalis/G_muris.blastn
+    jobid: 3
+    reason: Input files updated by another job: output/blastn/db/G_intestinalis.ndb
+    wildcards: type=blastn, db=G_intestinalis, query=G_muris
+    resources: tmpdir=/var/folders/fm/g5b93mjn4fq0jw4s838frp700000gn/T
+
+[Fri Jan 26 16:53:25 2024]
+Finished job 3.
+3 of 6 steps (50%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Jan 26 16:53:25 2024]
+localrule tRNAscan_stats:
+    input: resource/genomes/G_intestinalis.fasta
+    output: output/G_intestinalis.tRNA, output/G_intestinalis.stats
+    jobid: 2
+    reason: Updated input files: resource/genomes/G_intestinalis.fasta
+    resources: tmpdir=/var/folders/fm/g5b93mjn4fq0jw4s838frp700000gn/T
+
+Activating conda environment: .snakemake/conda/86df1ed97668d9f8703765ea6aa9febf_
+[Fri Jan 26 16:54:30 2024]
+Finished job 2.
+4 of 6 steps (67%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Jan 26 16:54:30 2024]
+localrule tRNAscan:
+    input: resource/genomes/G_intestinalis.fasta
+    output: output/tRNA_scan_result.txt
+    jobid: 1
+    reason: Missing output files: output/tRNA_scan_result.txt
+    resources: tmpdir=/var/folders/fm/g5b93mjn4fq0jw4s838frp700000gn/T
+
+tRNAscan-SE resource/genomes/G_intestinalis.fasta -o output/tRNA_scan_result.txt
+[Fri Jan 26 16:54:30 2024]
+Error in rule tRNAscan:
+    jobid: 1
+    input: resource/genomes/G_intestinalis.fasta
+    output: output/tRNA_scan_result.txt
+    shell:
+        tRNAscan-SE resource/genomes/G_intestinalis.fasta -o output/tRNA_scan_result.txt
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-01-26T165310.770512.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.
